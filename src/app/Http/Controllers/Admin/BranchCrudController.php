@@ -74,4 +74,9 @@ class BranchCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
+
+    protected function SetupShowOperation()
+    {
+        CRUD::setFromDb();
+    }
 }

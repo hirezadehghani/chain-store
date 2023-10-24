@@ -19,10 +19,10 @@ return [
 
     // If model has SoftDeletes, allow the admin to access the Show page for
     // soft deleted items & add a deleted_at column to ShowOperation?
-    'softDeletes' => false,
+    'softDeletes' => true,
 
     // Enable to group columns in tabs
-    'tabsEnabled' => false,
+    'tabsEnabled' => true,
 
     // When using tabbed forms (create & update), what kind of tabs would you like?
     'tabsType' => 'horizontal', //options: horizontal, vertical

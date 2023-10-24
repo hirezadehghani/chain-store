@@ -1,3 +1,4 @@
+
 @extends(backpack_view('layouts.' . (backpack_theme_config('layout') ?? 'vertical')))
 
 @php
@@ -26,6 +27,7 @@
 @endsection
 
 @section('content')
+<div>tg</div>
 @endsection
 
 @section('after_content_widgets')

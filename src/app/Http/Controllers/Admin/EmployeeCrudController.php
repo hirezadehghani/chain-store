@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\EmployeeRequest;
+use App\Models\Employee;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -39,15 +40,16 @@ class EmployeeCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        
+        CRUD::column('avatar')->type('image')->prefix('storage/'); //showing image correctly
+        CRUD::column('username')->remove();
+        CRUD::column('password')->remove();
         CRUD::setFromDb(); // set columns from db columns.
-
-
-        CRUD::column('image')->type('image'); //showing image correctly
-        CRUD::column('category')->wrapper([
-            'href' => function ($crud, $column, $entry) {
-                return backpack_url('category/', $entry->id, '/show');
-            },
-        ]);
+        // CRUD::column('category')->wrapper([
+        //     'href' => function ($crud, $column, $entry) {
+        //         return backpack_url('category/', $entry->id, '/show');
+        //     },
+        // ]);
     }
 
     /**
@@ -61,6 +63,14 @@ class EmployeeCrudController extends CrudController
         CRUD::setValidation(EmployeeRequest::class);
         CRUD::setFromDb(); // set fields from db columns.
 
+        CRUD::field([
+            'name' => 'avatar',
+            'label' => 'profile avatar:',
+            'type' => 'upload',
+            'withFiles' => [
+                'path' => 'employee/avatar'
+            ]
+        ]);
         /**
          * Fields can be defined using the fluent syntax:
          * - CRUD::field('price')->type('number');
@@ -76,5 +86,42 @@ class EmployeeCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupDeleteOperation()
+    {
+        // CRUD::field('photo')->type('upload')->withFiles();
+
+        // Alternatively, if you are not doing much more than defining fields in your create operation:
+        $this->setupCreateOperation();
+    }
+
+    // if you just want to show the same columns as inside ListOperation
+    protected function setupShowOperation()
+    {
+        CRUD::column([
+            'name' => 'name',
+            'tab' => 'general'
+        ]);
+
+        CRUD::column('avatar')->type('image')->prefix('storage/')->tab('general'); //showing image correctly
+
+        CRUD::column([
+            'name' => 'job_title',
+            'tab' => 'general'
+        ]);
+
+        CRUD::column([
+            'name' => 'username',
+            'tab' => 'Account information'
+        ]);
+
+        CRUD::column([
+            'name' => 'password',
+            'type' => 'password',
+            'tab' => 'Account information'
+        ]);
+        // $this->setupListOperation();
+        // CRUD::column('password')->remove();
     }
 }

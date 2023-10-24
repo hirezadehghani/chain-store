@@ -22,8 +22,8 @@ class Employee extends Model
     protected $table = 'employees';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
-    protected $guarded = ['id'];
-    protected $fillable = ['first_name', 'last_name', 'username', 'password', 'picture', 'job_title'];
+    // protected $guarded = ['id'];
+    protected $fillable = ['name', 'username', 'password', 'avatar', 'job_title'];
     // protected $hidden = [];
 
     /*
