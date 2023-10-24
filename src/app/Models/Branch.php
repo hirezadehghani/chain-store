@@ -5,10 +5,10 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Employee extends Model
+class Branch extends Model
 {
     use CrudTrait;
     use HasFactory;
@@ -19,11 +19,11 @@ class Employee extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'employees';
+    protected $table = 'branches';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['first_name', 'last_name', 'username', 'password', 'picture', 'job_title'];
+    // protected $fillable = [];
     // protected $hidden = [];
 
     /*
@@ -37,9 +37,10 @@ class Employee extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function employees() : HasMany
+
+    public function articles(): BelongsToMany
     {
-        return $this->hasMany(Employee::class);
+        return $this->belongsToMany(article::class);
     }
 
     /*

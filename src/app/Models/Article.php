@@ -5,10 +5,8 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Employee extends Model
+class Article extends Model
 {
     use CrudTrait;
     use HasFactory;
@@ -19,11 +17,11 @@ class Employee extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'employees';
+    protected $table = 'articles';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['first_name', 'last_name', 'username', 'password', 'picture', 'job_title'];
+    // protected $fillable = [];
     // protected $hidden = [];
 
     /*
@@ -37,10 +35,6 @@ class Employee extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function employees() : HasMany
-    {
-        return $this->hasMany(Employee::class);
-    }
 
     /*
     |--------------------------------------------------------------------------
