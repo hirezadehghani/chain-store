@@ -41,10 +41,13 @@ class EmployeeCrudController extends CrudController
     {
         CRUD::setFromDb(); // set columns from db columns.
 
-        /**
-         * Columns can be defined using the fluent syntax:
-         * - CRUD::column('price')->type('number');
-         */
+
+        CRUD::column('image')->type('image'); //showing image correctly
+        CRUD::column('category')->wrapper([
+            'href' => function ($crud, $column, $entry) {
+                return backpack_url('category/', $entry->id, '/show');
+            },
+        ]);
     }
 
     /**
