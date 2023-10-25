@@ -41,10 +41,10 @@ class EmployeeCrudController extends CrudController
     protected function setupListOperation()
     {
         
+        CRUD::setFromDb(); // set columns from db columns.
         CRUD::column('avatar')->type('image')->prefix('storage/'); //showing image correctly
         CRUD::column('username')->remove();
         CRUD::column('password')->remove();
-        CRUD::setFromDb(); // set columns from db columns.
         // CRUD::column('category')->wrapper([
         //     'href' => function ($crud, $column, $entry) {
         //         return backpack_url('category/', $entry->id, '/show');

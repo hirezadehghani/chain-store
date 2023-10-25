@@ -5,11 +5,9 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Article extends Model
+class Category extends Model
 {
     use CrudTrait;
     use HasFactory;
@@ -20,7 +18,7 @@ class Article extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'articles';
+    protected $table = 'categories';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -38,11 +36,11 @@ class Article extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
-    public function categories(): BelongsTo
+    public function articles(): HasMany
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Article::class);
     }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

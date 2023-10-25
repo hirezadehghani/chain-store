@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\ArticleRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use App\Models\Category;
+use Backpack\CRUD\app\Library\Widget;
+use Prologue\Alerts\Facades\Alert;
+
+use function React\Promise\all;
 
 /**
  * Class ArticleCrudController
@@ -38,9 +43,38 @@ class ArticleCrudController extends CrudController
      * @return void
      */
     protected function setupListOperation()
-    {
+    {        
+        // $this->crud->setColumnDetails('category', [
+        //     'label' => "category_id", // Table column heading
+        //     'type' => "select",
+        //     'name' => 'category_id', // the column that contains the ID of that connected entity;
+        //     'entity' => 'categories', // the method that defines the relationship in your Model
+        //     'attribute' => "title", // foreign key attribute that is shown to user
+        //     'model' => "App\Models\Category", // foreign key model
+        // ]);        
+        
+        CRUD::column('image')->type('image')->prefix('storage/'); //showing image correctly
+        
+        CRUD::addColumn([
+            'label' => 'Category', // Table column heading
+            'type' => 'select',
+            'name' => 'category_id', // the column that contains the ID of that connected entity;
+            'entity' => 'categories', // the method that defines the relationship in your Model
+            'attribute' => 'title', // foreign key attribute that is shown to user
+            'model' => "App\Models\Category", // foreign key model
+        ]);
+        
         CRUD::setFromDb(); // set columns from db columns.
-
+        Widget::add(
+        [
+            'type'       => 'card',
+            // 'wrapper' => ['class' => 'col-sm-6 col-md-4'], // optional
+            // 'class'   => 'card bg-dark text-white', // optional
+            'content'    => [
+                'header' => 't', // optional
+                'body'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non mi nec orci euismod venenatis. Integer quis sapien et diam facilisis facilisis ultricies quis justo. Phasellus sem <b>turpis</b>, ornare quis aliquet ut, volutpat et lectus. Aliquam a egestas elit. <i>Nulla posuere</i>, sem et porttitor mollis, massa nibh sagittis nibh, id porttitor nibh turpis sed arcu.',
+            ]
+        ]);
         /**
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');
@@ -55,13 +89,32 @@ class ArticleCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(ArticleRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
-
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
+        $category = new Category();
+        if ($category::all('id')->isNotEmpty()) {
+            CRUD::setValidation(ArticleRequest::class);
+            CRUD::setFromDb(); // set fields from db columns.
+            CRUD::field([
+                'label' => "Category",
+                'type' => 'select',
+                'name' => 'category_id',
+                'model' => "App\Models\Category",
+                'attribute' => 'title',
+            ]);
+            CRUD::field([
+                'name' => 'image',
+                'label' => 'Image:',
+                'type' => 'upload',
+                'withFiles' => [
+                    'path' => 'article/thumbnails'
+                ]
+            ]);
+            /**
+             * Fields can be defined using the fluent syntax:
+             * - CRUD::field('price')->type('number');
+             */
+        } else {
+            return Alert::error('There is not any category. first create a category.');
+        }
     }
 
     /**
@@ -73,5 +126,13 @@ class ArticleCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupShowOperation()
+    {
+          
+        CRUD::column('image')->type('image')->prefix('storage/'); //showing image correctly
+        CRUD::setFromDb(); // set columns from db columns.
+        // CRUD::column('username')->remove();
     }
 }

@@ -12,7 +12,7 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, CrudTrait;
+    use HasApiTokens, HasFactory, Notifiable, CrudTrait, HasRoles;
 
     /**
      * The attributes that are mass assignable.
