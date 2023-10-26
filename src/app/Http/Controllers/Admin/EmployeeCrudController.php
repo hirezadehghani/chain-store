@@ -71,10 +71,6 @@ class EmployeeCrudController extends CrudController
                 'path' => 'employee/avatar'
             ]
         ]);
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
     }
 
     /**
