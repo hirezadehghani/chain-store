@@ -2,16 +2,11 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Article extends Model
+class Permission extends Model
 {
-    use CrudTrait;
     use HasFactory;
 
     /*
@@ -19,13 +14,8 @@ class Article extends Model
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
-
-    protected $table = 'articles';
-    // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    protected $table = 'permissions';
     protected $guarded = ['id'];
-    // protected $fillable = [];
-    // protected $hidden = [];
 
     /*
     |--------------------------------------------------------------------------
@@ -39,10 +29,6 @@ class Article extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function categories(): BelongsTo
-    {
-        return $this->belongsTo(Category::class);
-    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

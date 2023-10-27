@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Branch extends Model
 {
@@ -23,7 +24,14 @@ class Branch extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    // protected $fillable = [];
+    protected $fillable = [
+    'name',
+    'username',
+    'email',
+    'job_title',
+    'password',
+    'avatar',
+    ];
     // protected $hidden = [];
 
     /*
@@ -41,6 +49,11 @@ class Branch extends Model
     public function articles(): BelongsToMany
     {
         return $this->belongsToMany(article::class);
+    }
+
+    public function employees(): HasMany
+    {
+        return $this->hasMany(Employee::class);
     }
 
     /*

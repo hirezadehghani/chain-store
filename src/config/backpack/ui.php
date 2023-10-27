@@ -46,7 +46,7 @@ return [
     // ----
 
     // Project name - shown in the window title
-    'project_name' => 'پنل مدیریت فروشگاه زنجیره‌ای',
+    'project_name' => 'Chain store admin panel',
 
     // Content of the HTML meta robots tag to prevent indexing and link following
     'meta_robots_content' => 'noindex, nofollow',
@@ -63,7 +63,7 @@ return [
     'home_link' => '/admin',
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => 'فروشگاه<b>زنجیره‌ای</b>',
+    'project_logo'   => '<b>Reza</b><i>ChainStore</i>',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,
@@ -73,7 +73,7 @@ return [
     // ------
 
     // Developer or company name. Shown in footer.
-    'developer_name' => 'رضا دهقانی',
+    'developer_name' => 'Reza Dehghani',
 
     // Developer website. Link in footer. Type false if you want to hide it.
     'developer_link' => 'http://hireza.ir',

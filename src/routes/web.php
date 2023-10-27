@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Redirect Employee to admin panel
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->to('/admin/dashboard');
 });

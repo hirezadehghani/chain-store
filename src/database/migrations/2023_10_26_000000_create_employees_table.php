@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('username', 50)->unique();
-            $table->string('email')->unique();
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('avatar')->nullable();
             $table->string('job_title', 50);
             $table->string('password');
+            $table->foreignId('branch_id')->references('id')->on('branches');
             $table->rememberToken();
             $table->timestamps();
         });

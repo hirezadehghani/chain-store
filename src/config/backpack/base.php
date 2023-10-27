@@ -104,7 +104,7 @@ return [
     */
 
     // Fully qualified namespace of the User model
-    'user_model_fqn' => config('auth.providers.users.model'),
+    'user_model_fqn' => config('auth.providers.employees.model'),
     // 'user_model_fqn' => App\User::class, // works on Laravel <= 7
     // 'user_model_fqn' => App\Models\Employee::class, // works on Laravel >= 8
 
@@ -124,8 +124,8 @@ return [
     // Username column for authentication
     // The Backpack default is the same as the Laravel default (email)
     // If you need to switch to username, you also need to create that column in your db
-    'authentication_column' => 'email',
-    'authentication_column_name' => 'Email',
+    'authentication_column' => 'username',
+    'authentication_column_name' => 'Username',
 
     // Backpack assumes that your "database email column" for operations like Login and Register is called "email".
     // If your database email column have a different name, you can configure it here. Eg: `user_mail`

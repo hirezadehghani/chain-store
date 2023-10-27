@@ -30,8 +30,10 @@ class Employee extends Authenticatable
         'name',
         'username',
         'password',
+        'email',
         'avatar',
-        'job_title'
+        'job_title',
+        'branch_id'
     ];
 
     /**

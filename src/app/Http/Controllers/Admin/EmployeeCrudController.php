@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\EmployeeRequest;
+use App\Models\Branch;
 use App\Models\Employee;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Illuminate\Foundation\Auth\User;
+use Prologue\Alerts\Facades\Alert;
 
 /**
  * Class EmployeeCrudController
@@ -40,16 +43,12 @@ class EmployeeCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
         CRUD::setFromDb(); // set columns from db columns.
         CRUD::column('avatar')->type('image')->prefix('storage/'); //showing image correctly
+        CRUD::column('branch');
+        CRUD::column('email')->remove();
         CRUD::column('username')->remove();
         CRUD::column('password')->remove();
-        // CRUD::column('category')->wrapper([
-        //     'href' => function ($crud, $column, $entry) {
-        //         return backpack_url('category/', $entry->id, '/show');
-        //     },
-        // ]);
     }
 
     /**
@@ -60,17 +59,33 @@ class EmployeeCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(EmployeeRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
+        if (backpack_user()->can('edit articles')) {
+            $branch = new Branch();
+            if ($branch::all('id')->isNotEmpty()) {
 
-        CRUD::field([
-            'name' => 'avatar',
-            'label' => 'profile avatar:',
-            'type' => 'upload',
-            'withFiles' => [
-                'path' => 'employee/avatar'
-            ]
-        ]);
+                CRUD::setValidation(EmployeeRequest::class);
+                CRUD::setFromDb(); // set fields from db columns.
+
+                CRUD::field([
+                    'name' => 'avatar',
+                    'label' => 'profile avatar:',
+                    'type' => 'upload',
+                    'withFiles' => [
+                        'path' => 'employee/avatar'
+                    ]
+                ]);
+
+                CRUD::field([
+                    'label' => "Branch",
+                    'type' => 'select',
+                    'name' => 'branch_id',
+                    'model' => "App\Models\Branch",
+                    'attribute' => 'name',
+                ]);
+            } else {
+                return Alert::error('There is not any branch. first create a branch.');
+                }
+        }
     }
 
     /**
@@ -117,7 +132,5 @@ class EmployeeCrudController extends CrudController
             'type' => 'password',
             'tab' => 'Account information'
         ]);
-        // $this->setupListOperation();
-        // CRUD::column('password')->remove();
     }
 }

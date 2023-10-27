@@ -20,9 +20,15 @@ class EmployeeSeeder extends Seeder
             'email' => 'test@hireza.ir',
             'username' => 'hireza',
             'job_title' => 'Junior back-end developer',
-            'password' => Hash::make('secret')
-        ]);
+            'password' => Hash::make('secret'),
+            'branch_id' => 1
+        ])->each(function ($user) {
+            $user->assignRole('system admin');
+        });
+
         // create 10 employee from dummy data
-        Employee::factory(10)->create();
+        Employee::factory(10)->create()->each(function ($user) {
+            $user->assignRole('staff');
+        });
     }
 }

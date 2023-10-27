@@ -31,7 +31,6 @@ class EmployeeRequest extends FormRequest
             'password' => 'required|min:8|max:255',
             'avatar' => 'nullable',
             'job_title' => 'required|min:3|max:255'
-             
         ];
     }
 
