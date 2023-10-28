@@ -26,11 +26,8 @@ class Branch extends Model
     protected $guarded = ['id'];
     protected $fillable = [
     'name',
-    'username',
-    'email',
-    'job_title',
-    'password',
-    'avatar',
+    'address',
+    'employee_id'
     ];
     // protected $hidden = [];
 
@@ -48,7 +45,7 @@ class Branch extends Model
 
     public function articles(): BelongsToMany
     {
-        return $this->belongsToMany(article::class);
+        return $this->belongsToMany(Article::class);
     }
 
     public function employees(): HasMany

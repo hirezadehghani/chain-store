@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\EmployeeRequest;
 use App\Models\Branch;
 use App\Models\Employee;
+use App\Models\Role;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Http\Request;
 use Prologue\Alerts\Facades\Alert;
 
 /**
@@ -84,6 +86,17 @@ class EmployeeCrudController extends CrudController
                 'model' => "App\Models\Branch",
                 'attribute' => 'name',
             ]);
+
+            CRUD::field([
+                'label' => "Role",
+                'type' => 'select',
+                'name' => 'role_id',
+                'model' => "App\Models\Role",
+                'attribute' => 'name',
+            ])->on('saving', function ($entry) {
+                $entry->assignRole($entry->role_id);
+            });
+            
         } else {
             return Alert::error('There is not any branch. first create a branch.');
         }

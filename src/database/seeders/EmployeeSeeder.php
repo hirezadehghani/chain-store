@@ -21,9 +21,15 @@ class EmployeeSeeder extends Seeder
             'username' => 'hireza',
             'job_title' => 'Junior back-end developer',
             'password' => Hash::make('secret'),
+            'role_id' => 3,
             'branch_id' => 1
         ])->each(function ($user) {
             $user->assignRole('system admin');
+        });
+
+        // create 10 employee from dummy data
+        Employee::factory(1)->create()->each(function ($user) {
+            $user->assignRole('store manager');
         });
 
         // create 10 employee from dummy data

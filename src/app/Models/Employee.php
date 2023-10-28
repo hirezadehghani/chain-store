@@ -9,6 +9,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Composer\DependencyResolver\Request;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Employee extends Authenticatable
 {
@@ -33,7 +36,8 @@ class Employee extends Authenticatable
         'email',
         'avatar',
         'job_title',
-        'branch_id'
+        'branch_id',
+        'role_id'
     ];
 
     /**
@@ -66,6 +70,10 @@ class Employee extends Authenticatable
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function branches(): HasOne
+    {
+        return $this->hasOne(Branch::class);
+    }
 
     /*
     |--------------------------------------------------------------------------

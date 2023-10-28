@@ -13,11 +13,6 @@ class BranchSeeder extends Seeder
      */
     public function run(): void
     {
-        Branch::factory()->create([
-            'name' => 'Central',
-            'address' => 'Tehran'
-        ]);
-
         // create 10 employee from dummy data
         Branch::factory(10)->create();
     }

@@ -15,7 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('address');
+            $table->foreignId('employee_id')->nullable()->references('id')->on('employees');
             $table->timestamps();
+        });
+
+        Schema::table('employees', function (Blueprint $table) {
+            $table->foreignId('branch_id')->references('id')->on('branches');
         });
     }
 

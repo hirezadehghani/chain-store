@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->string('job_title', 50);
             $table->string('password');
-            $table->foreignId('branch_id')->references('id')->on('branches');
+            $table->foreignId('role_id')->references('id')->on('roles');
             $table->rememberToken();
             $table->timestamps();
         });
