@@ -24,6 +24,9 @@ class ArticleCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
+    // add Crudpermission trait to controll access to operations
+    use \App\Http\Traits\CrudPermissionTrait;
+    
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -34,6 +37,7 @@ class ArticleCrudController extends CrudController
         CRUD::setModel(\App\Models\Article::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/article');
         CRUD::setEntityNameStrings('article', 'articles');
+        $this->setAccessUsingPermissions();
     }
 
     /**
@@ -43,7 +47,7 @@ class ArticleCrudController extends CrudController
      * @return void
      */
     protected function setupListOperation()
-    {        
+    {
         // $this->crud->setColumnDetails('category', [
         //     'label' => "category_id", // Table column heading
         //     'type' => "select",
@@ -52,9 +56,9 @@ class ArticleCrudController extends CrudController
         //     'attribute' => "title", // foreign key attribute that is shown to user
         //     'model' => "App\Models\Category", // foreign key model
         // ]);        
-        
+
         CRUD::column('image')->type('image')->prefix('storage/'); //showing image correctly
-        
+
         CRUD::column('category')->wrapper([
             'href' => function ($crud, $column, $entry) {
                 return backpack_url('category/' . $entry->id . '/show');
@@ -69,18 +73,19 @@ class ArticleCrudController extends CrudController
         //     'attribute' => 'title', // foreign key attribute that is shown to user
         //     'model' => "App\Models\Category", // foreign key model
         // ]);
-        
+
         CRUD::setFromDb(); // set columns from db columns.
         Widget::add(
-        [
-            'type'       => 'card',
-            // 'wrapper' => ['class' => 'col-sm-6 col-md-4'], // optional
-            // 'class'   => 'card bg-dark text-white', // optional
-            'content'    => [
-                'header' => 't', // optional
-                'body'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non mi nec orci euismod venenatis. Integer quis sapien et diam facilisis facilisis ultricies quis justo. Phasellus sem <b>turpis</b>, ornare quis aliquet ut, volutpat et lectus. Aliquam a egestas elit. <i>Nulla posuere</i>, sem et porttitor mollis, massa nibh sagittis nibh, id porttitor nibh turpis sed arcu.',
+            [
+                'type'       => 'card',
+                // 'wrapper' => ['class' => 'col-sm-6 col-md-4'], // optional
+                // 'class'   => 'card bg-dark text-white', // optional
+                'content'    => [
+                    'header' => 't', // optional
+                    'body'   => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non mi nec orci euismod venenatis. Integer quis sapien et diam facilisis facilisis ultricies quis justo. Phasellus sem <b>turpis</b>, ornare quis aliquet ut, volutpat et lectus. Aliquam a egestas elit. <i>Nulla posuere</i>, sem et porttitor mollis, massa nibh sagittis nibh, id porttitor nibh turpis sed arcu.',
+                ]
             ]
-        ]);
+        );
         /**
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');
@@ -136,7 +141,7 @@ class ArticleCrudController extends CrudController
 
     protected function setupShowOperation()
     {
-          
+
         CRUD::column('image')->type('image')->prefix('storage/'); //showing image correctly
         CRUD::setFromDb(); // set columns from db columns.
         // CRUD::column('username')->remove();

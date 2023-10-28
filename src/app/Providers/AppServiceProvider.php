@@ -22,7 +22,11 @@ class AppServiceProvider extends ServiceProvider
         // in some ServiceProvider, AppServiceProvider for example
         $this->app->bind(
             \Backpack\PermissionManager\app\Http\Controllers\UserCrudController::class, //this is package controller
-            \App\Http\Controllers\Admin\EmployeeCrudController::class //this should be your own controller
+            \App\Http\Controllers\Admin\EmployeeCrudController::class, //this should be your own controller
+            \Backpack\PermissionManager\app\Http\Controllers\RoleCrudController::class, //this is package controller
+            \App\Http\Controllers\Admin\RoleCrudController::class, //this should be your own controller
+            \Backpack\PermissionManager\app\Http\Controllers\PermissionCrudController::class, //this is package controller
+            \App\Http\Controllers\Admin\PermissionCrudController::class //this should be your own controller
         );
 
         // this tells Laravel that when UserCrudController is requested, your own UserCrudController should be served.

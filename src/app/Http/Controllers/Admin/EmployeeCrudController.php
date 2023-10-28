@@ -23,6 +23,8 @@ class EmployeeCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
+    // add Crudpermission trait to controll access to operations
+    use \App\Http\Traits\CrudPermissionTrait;
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -33,6 +35,7 @@ class EmployeeCrudController extends CrudController
         CRUD::setModel(\App\Models\Employee::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/employee');
         CRUD::setEntityNameStrings('employee', 'employees');
+        $this->setAccessUsingPermissions();
     }
 
     /**
@@ -59,32 +62,30 @@ class EmployeeCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        if (backpack_user()->can('edit articles')) {
-            $branch = new Branch();
-            if ($branch::all('id')->isNotEmpty()) {
+        $branch = new Branch();
+        if ($branch::all('id')->isNotEmpty()) {
 
-                CRUD::setValidation(EmployeeRequest::class);
-                CRUD::setFromDb(); // set fields from db columns.
+            CRUD::setValidation(EmployeeRequest::class);
+            CRUD::setFromDb(); // set fields from db columns.
 
-                CRUD::field([
-                    'name' => 'avatar',
-                    'label' => 'profile avatar:',
-                    'type' => 'upload',
-                    'withFiles' => [
-                        'path' => 'employee/avatar'
-                    ]
-                ]);
+            CRUD::field([
+                'name' => 'avatar',
+                'label' => 'profile avatar:',
+                'type' => 'upload',
+                'withFiles' => [
+                    'path' => 'employee/avatar'
+                ]
+            ]);
 
-                CRUD::field([
-                    'label' => "Branch",
-                    'type' => 'select',
-                    'name' => 'branch_id',
-                    'model' => "App\Models\Branch",
-                    'attribute' => 'name',
-                ]);
-            } else {
-                return Alert::error('There is not any branch. first create a branch.');
-                }
+            CRUD::field([
+                'label' => "Branch",
+                'type' => 'select',
+                'name' => 'branch_id',
+                'model' => "App\Models\Branch",
+                'attribute' => 'name',
+            ]);
+        } else {
+            return Alert::error('There is not any branch. first create a branch.');
         }
     }
 
