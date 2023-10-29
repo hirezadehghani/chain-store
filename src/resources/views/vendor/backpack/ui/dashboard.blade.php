@@ -36,7 +36,6 @@
 @endsection
 
 @section('content')
-'salam'
 @endsection
 
 @section('after_content_widgets')

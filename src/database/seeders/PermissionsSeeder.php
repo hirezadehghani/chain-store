@@ -43,7 +43,7 @@ class PermissionsSeeder extends Seeder
 
         $store_managers = Role::where('name', 'store manager')->get();
         foreach ($store_managers as $store_manager) {
-            $store_manager->givePermissionTo(['employees.see', 'employees.edit', 'branches.see', 'branches.edit', 'articles.see', 'articles.edit']);
+            $store_manager->givePermissionTo(['employees.see', 'employees.edit', 'branches.see', 'branches.edit', 'articles.see', 'articles.edit', 'categories.see', 'categories.edit']);
         }
 
         $staffs = Role::where('name', 'staff')->get();

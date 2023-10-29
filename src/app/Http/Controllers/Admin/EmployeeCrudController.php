@@ -101,7 +101,7 @@ class EmployeeCrudController extends CrudController
                 'model' => "App\Models\Role",
                 'attribute' => 'name',
             ])->on('saving', function ($entry) {
-                $entry->assignRole($entry->role_id);
+                $entry->syncRoles($entry->role_id);
             });
         } else {
             return Alert::error('There is not any branch. first create a branch.');
