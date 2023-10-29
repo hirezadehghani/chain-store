@@ -35,11 +35,20 @@ class PermissionsSeeder extends Seeder
                     'name' => implode('.', $item),
                 ])
                     ->save()
-            )
-        ;
+            );
 
         // assign roles to permissions
         $system_admin = Role::where('name', 'system admin')->first();
         $system_admin->givePermissionTo(Permission::all());
+
+        $store_managers = Role::where('name', 'store manager')->get();
+        foreach ($store_managers as $store_manager) {
+            $store_manager->givePermissionTo(['employees.see', 'employees.edit', 'branches.see', 'branches.edit', 'articles.see', 'articles.edit']);
+        }
+
+        $staffs = Role::where('name', 'staff')->get();
+        foreach ($staffs as $staff) {
+            $staff->givePermissionTo(['employees.see', 'branches.see', 'articles.see']);
+        }
     }
 }
