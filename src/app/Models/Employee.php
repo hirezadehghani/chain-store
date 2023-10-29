@@ -65,6 +65,11 @@ class Employee extends Authenticatable
     |--------------------------------------------------------------------------
     */
 
+    public function getAvatar()
+    {
+        return '/storage/' . $this->avatar;
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

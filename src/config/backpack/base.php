@@ -56,7 +56,7 @@ return [
     'setup_my_account_routes' => true,
 
     // Set this to false if you would like to skip adding the password recovery routes
-    // (you then need to manually define the routes in your web.php)
+    // (you t   hen need to manually define the routes in your web.php)
     'setup_password_recovery_routes' => true,
 
     // Set this to true if you would like to enable email verification for your user model.
@@ -147,7 +147,7 @@ return [
     // Other options:
     // - null (generic image with their first letter)
     // - example_method_name (specify the method on the User model that returns the URL)
-    'avatar_type' => 'gravatar',
+    'avatar_type' => 'getAvatar',
 
     // Gravatar fallback options are 'identicon', 'monsterid', 'wavatar', 'retro', 'robohash', 'blank'
     // 'blank' will keep the generic image with the user first letter

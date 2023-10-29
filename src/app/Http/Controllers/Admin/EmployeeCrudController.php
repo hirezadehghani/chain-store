@@ -4,12 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\EmployeeRequest;
 use App\Models\Branch;
-use App\Models\Employee;
-use App\Models\Role;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use Illuminate\Foundation\Auth\User;
-use Illuminate\Http\Request;
 use Prologue\Alerts\Facades\Alert;
 
 /**
@@ -50,10 +46,21 @@ class EmployeeCrudController extends CrudController
     {
         CRUD::setFromDb(); // set columns from db columns.
         CRUD::column('avatar')->type('image')->prefix('storage/'); //showing image correctly
-        CRUD::column('branch');
         CRUD::column('email')->remove();
+        CRUD::column('branch')->remove();
         CRUD::column('username')->remove();
         CRUD::column('password')->remove();
+        CRUD::column('role')->remove();
+
+        // CRUD::column([
+        //     // 1-n relationship
+        //     'label'     => 'branch', // Table column heading
+        //     'type'      => 'select',
+        //     'name'      => 'branches_employee_id', // the column that contains the ID of that connected entity;
+        //     'entity'    => 'branches', // the method that defines the relationship in your Model
+        //     'attribute' => 'name', // foreign key attribute that is shown to user
+        //     'model'     => "App\Models\Branch", // foreign key model
+        // ]);
     }
 
     /**
@@ -96,7 +103,6 @@ class EmployeeCrudController extends CrudController
             ])->on('saving', function ($entry) {
                 $entry->assignRole($entry->role_id);
             });
-            
         } else {
             return Alert::error('There is not any branch. first create a branch.');
         }

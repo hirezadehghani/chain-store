@@ -26,7 +26,7 @@ class ArticleCrudController extends CrudController
 
     // add Crudpermission trait to controll access to operations
     use \App\Http\Traits\CrudPermissionTrait;
-    
+
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -48,31 +48,16 @@ class ArticleCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        // $this->crud->setColumnDetails('category', [
-        //     'label' => "category_id", // Table column heading
-        //     'type' => "select",
-        //     'name' => 'category_id', // the column that contains the ID of that connected entity;
-        //     'entity' => 'categories', // the method that defines the relationship in your Model
-        //     'attribute' => "title", // foreign key attribute that is shown to user
-        //     'model' => "App\Models\Category", // foreign key model
-        // ]);        
 
         CRUD::column('image')->type('image')->prefix('storage/'); //showing image correctly
-
-        CRUD::column('category')->wrapper([
-            'href' => function ($crud, $column, $entry) {
-                return backpack_url('category/' . $entry->id . '/show');
-            },
+        CRUD::column([
+            'label'     => 'category', // Table column heading
+            'type'      => 'select',
+            'name'      => 'category_id', // the column that contains the ID of that connected entity;
+            'entity'    => 'categories', // the method that defines the relationship in your Model
+            'attribute' => 'title', // foreign key attribute that is shown to user
+            'model'     => "App\Models\Category", // foreign key model
         ]);
-
-        // CRUD::addColumn([
-        //     'label' => 'Category', // Table column heading
-        //     'type' => 'select',
-        //     'name' => 'category_id', // the column that contains the ID of that connected entity;
-        //     'entity' => 'categories', // the method that defines the relationship in your Model
-        //     'attribute' => 'title', // foreign key attribute that is shown to user
-        //     'model' => "App\Models\Category", // foreign key model
-        // ]);
 
         CRUD::setFromDb(); // set columns from db columns.
         Widget::add(
@@ -86,10 +71,6 @@ class ArticleCrudController extends CrudController
                 ]
             ]
         );
-        /**
-         * Columns can be defined using the fluent syntax:
-         * - CRUD::column('price')->type('number');
-         */
     }
 
     /**
@@ -119,10 +100,6 @@ class ArticleCrudController extends CrudController
                     'path' => 'article/thumbnails'
                 ]
             ]);
-            /**
-             * Fields can be defined using the fluent syntax:
-             * - CRUD::field('price')->type('number');
-             */
         } else {
             return Alert::error('There is not any category. first create a category.');
         }
@@ -144,6 +121,5 @@ class ArticleCrudController extends CrudController
 
         CRUD::column('image')->type('image')->prefix('storage/'); //showing image correctly
         CRUD::setFromDb(); // set columns from db columns.
-        // CRUD::column('username')->remove();
     }
 }
