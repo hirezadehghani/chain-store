@@ -1,0 +1,132 @@
+2023/10/29 09:56:12 [notice] 1#1: using the "epoll" event method
+2023/10/29 09:56:12 [notice] 1#1: nginx/1.25.3
+2023/10/29 09:56:12 [notice] 1#1: built by gcc 12.2.1 20220924 (Alpine 12.2.1_git20220924-r10) 
+2023/10/29 09:56:12 [notice] 1#1: OS: Linux 5.15.49-linuxkit-pr
+2023/10/29 09:56:12 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/10/29 09:56:12 [notice] 1#1: start worker processes
+2023/10/29 09:56:12 [notice] 1#1: start worker process 28
+2023/10/29 09:56:12 [notice] 1#1: start worker process 29
+2023/10/29 09:56:12 [notice] 1#1: start worker process 30
+2023/10/29 09:56:12 [notice] 1#1: start worker process 31
+2023/10/29 10:07:36 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/10/29 10:07:36 [notice] 31#31: gracefully shutting down
+2023/10/29 10:07:36 [notice] 28#28: gracefully shutting down
+2023/10/29 10:07:36 [notice] 30#30: gracefully shutting down
+2023/10/29 10:07:36 [notice] 29#29: gracefully shutting down
+2023/10/29 10:07:36 [notice] 29#29: exiting
+2023/10/29 10:07:36 [notice] 28#28: exiting
+2023/10/29 10:07:36 [notice] 30#30: exiting
+2023/10/29 10:07:36 [notice] 28#28: exit
+2023/10/29 10:07:36 [notice] 30#30: exit
+2023/10/29 10:07:36 [notice] 31#31: exiting
+2023/10/29 10:07:36 [notice] 31#31: exit
+2023/10/29 10:07:36 [notice] 29#29: exit
+2023/10/29 10:07:36 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2023/10/29 10:07:36 [notice] 1#1: worker process 30 exited with code 0
+2023/10/29 10:07:36 [notice] 1#1: signal 29 (SIGIO) received
+2023/10/29 10:07:36 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2023/10/29 10:07:36 [notice] 1#1: worker process 28 exited with code 0
+2023/10/29 10:07:36 [notice] 1#1: signal 29 (SIGIO) received
+2023/10/29 10:07:36 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2023/10/29 10:07:36 [notice] 1#1: worker process 29 exited with code 0
+2023/10/29 10:07:36 [notice] 1#1: signal 29 (SIGIO) received
+2023/10/29 10:07:36 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2023/10/29 10:07:36 [notice] 1#1: worker process 31 exited with code 0
+2023/10/29 10:07:36 [notice] 1#1: exit
+2023/10/29 10:40:02 [notice] 1#1: using the "epoll" event method
+2023/10/29 10:40:02 [notice] 1#1: nginx/1.25.3
+2023/10/29 10:40:02 [notice] 1#1: built by gcc 12.2.1 20220924 (Alpine 12.2.1_git20220924-r10) 
+2023/10/29 10:40:02 [notice] 1#1: OS: Linux 5.15.49-linuxkit-pr
+2023/10/29 10:40:02 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/10/29 10:40:02 [notice] 1#1: start worker processes
+2023/10/29 10:40:02 [notice] 1#1: start worker process 29
+2023/10/29 10:40:02 [notice] 1#1: start worker process 30
+2023/10/29 10:40:02 [notice] 1#1: start worker process 31
+2023/10/29 10:40:02 [notice] 1#1: start worker process 32
+2023/10/29 11:18:35 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/10/29 11:18:35 [notice] 30#30: gracefully shutting down
+2023/10/29 11:18:35 [notice] 30#30: exiting
+2023/10/29 11:18:35 [notice] 32#32: gracefully shutting down
+2023/10/29 11:18:35 [notice] 31#31: gracefully shutting down
+2023/10/29 11:18:35 [notice] 32#32: exiting
+2023/10/29 11:18:35 [notice] 29#29: gracefully shutting down
+2023/10/29 11:18:35 [notice] 29#29: exiting
+2023/10/29 11:18:35 [notice] 32#32: exit
+2023/10/29 11:18:35 [notice] 29#29: exit
+2023/10/29 11:18:35 [notice] 30#30: exit
+2023/10/29 11:18:35 [notice] 31#31: exiting
+2023/10/29 11:18:35 [notice] 31#31: exit
+2023/10/29 11:18:35 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2023/10/29 11:18:35 [notice] 1#1: worker process 32 exited with code 0
+2023/10/29 11:18:35 [notice] 1#1: signal 29 (SIGIO) received
+2023/10/29 11:18:35 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2023/10/29 11:18:35 [notice] 1#1: worker process 30 exited with code 0
+2023/10/29 11:18:35 [notice] 1#1: signal 29 (SIGIO) received
+2023/10/29 11:18:35 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2023/10/29 11:18:35 [notice] 1#1: worker process 29 exited with code 0
+2023/10/29 11:18:35 [notice] 1#1: signal 29 (SIGIO) received
+2023/10/29 11:18:35 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2023/10/29 11:18:35 [notice] 1#1: worker process 31 exited with code 0
+2023/10/29 11:18:35 [notice] 1#1: exit
+2023/10/29 11:18:42 [notice] 1#1: using the "epoll" event method
+2023/10/29 11:18:42 [notice] 1#1: nginx/1.25.3
+2023/10/29 11:18:42 [notice] 1#1: built by gcc 12.2.1 20220924 (Alpine 12.2.1_git20220924-r10) 
+2023/10/29 11:18:42 [notice] 1#1: OS: Linux 5.15.49-linuxkit-pr
+2023/10/29 11:18:42 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/10/29 11:18:42 [notice] 1#1: start worker processes
+2023/10/29 11:18:42 [notice] 1#1: start worker process 29
+2023/10/29 11:18:42 [notice] 1#1: start worker process 30
+2023/10/29 11:18:42 [notice] 1#1: start worker process 31
+2023/10/29 11:18:42 [notice] 1#1: start worker process 32
+2023/10/29 11:29:11 [error] 30#30: *73 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/dashboard"
+2023/10/29 11:29:13 [error] 29#29: *70 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/employee"
+2023/10/29 11:29:14 [error] 30#30: *73 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/branch"
+2023/10/29 11:29:16 [error] 30#30: *73 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/article"
+2023/10/29 11:29:17 [error] 30#30: *73 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/category"
+2023/10/29 11:29:19 [error] 30#30: *73 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/role"
+2023/10/29 11:29:22 [error] 30#30: *73 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/dashboard"
+2023/10/29 11:29:26 [error] 30#30: *73 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/employee"
+2023/10/29 11:29:30 [error] 31#31: *72 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/employee/12/edit"
+2023/10/29 11:29:41 [error] 30#30: *73 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/employee"
+2023/10/29 11:29:59 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/dashboard"
+2023/10/29 11:30:01 [error] 30#30: *101 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/employee"
+2023/10/29 11:30:02 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/branch"
+2023/10/29 11:30:03 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/article"
+2023/10/29 11:30:04 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/category"
+2023/10/29 11:30:05 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/category/create"
+2023/10/29 11:30:07 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/category"
+2023/10/29 11:30:08 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/article"
+2023/10/29 11:30:10 [error] 29#29: *99 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/article/create"
+2023/10/29 11:30:10 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/article/create"
+2023/10/29 11:30:15 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/article"
+2023/10/29 11:30:17 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/dashboard"
+2023/10/29 11:30:19 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/employee"
+2023/10/29 11:30:20 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/article"
+2023/10/29 11:30:22 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/employee"
+2023/10/29 11:30:26 [error] 29#29: *100 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/employee/12/edit"
+2023/10/29 11:31:24 [error] 29#29: *158 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/dashboard"
+2023/10/29 11:31:26 [error] 32#32: *160 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/role"
+2023/10/29 11:31:29 [error] 32#32: *160 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/employee?role=3"
+2023/10/29 11:31:36 [error] 32#32: *160 directory index of "/var/www/html/public/storage/" is forbidden, client: 172.18.0.1, server: , request: "GET /storage/ HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/admin/dashboard"
+2023/10/29 11:32:14 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/10/29 11:32:14 [notice] 30#30: gracefully shutting down
+2023/10/29 11:32:14 [notice] 31#31: gracefully shutting down
+2023/10/29 11:32:14 [notice] 31#31: exiting
+2023/10/29 11:32:14 [notice] 32#32: gracefully shutting down
+2023/10/29 11:32:14 [notice] 29#29: gracefully shutting down
+2023/10/29 11:32:14 [notice] 32#32: exiting
+2023/10/29 11:32:14 [notice] 30#30: exiting
+2023/10/29 11:32:14 [notice] 31#31: exit
+2023/10/29 11:32:14 [notice] 29#29: exiting
+2023/10/29 11:32:14 [notice] 32#32: exit
+2023/10/29 11:32:14 [notice] 30#30: exit
+2023/10/29 11:32:14 [notice] 29#29: exit
+2023/10/29 11:32:14 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2023/10/29 11:32:14 [notice] 1#1: worker process 30 exited with code 0
+2023/10/29 11:32:14 [notice] 1#1: worker process 31 exited with code 0
+2023/10/29 11:32:14 [notice] 1#1: worker process 32 exited with code 0
+2023/10/29 11:32:14 [notice] 1#1: signal 29 (SIGIO) received
+2023/10/29 11:32:14 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2023/10/29 11:32:14 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2023/10/29 11:32:14 [notice] 1#1: worker process 29 exited with code 0
+2023/10/29 11:32:14 [notice] 1#1: exit
