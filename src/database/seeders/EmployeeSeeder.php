@@ -28,7 +28,17 @@ class EmployeeSeeder extends Seeder
         });
 
         // create 10 employee from dummy data
-        Employee::factory(1)->create()->each(function ($user) {
+        Employee::factory(1)->create(
+            [
+                'name' => 'Store manager',
+                'email' => 'test2@hireza.ir',
+                'username' => 'hireza2',
+                'job_title' => 'Central manager',
+                'password' => Hash::make('secret'),
+                'role_id' => 2,
+                'branch_id' => 1
+            ]
+        )->each(function ($user) {
             $user->assignRole('store manager');
         });
 

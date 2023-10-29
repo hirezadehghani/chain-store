@@ -64,6 +64,9 @@ class BranchCrudController extends CrudController
             'name' => 'employee_id',
             'model' => "App\Models\Employee",
             'attribute' => 'name',
+            'options'   => (function ($query) {
+                return $query->orderBy('name', 'ASC')->where('role_id', 2)->get();
+            }),
         ]);
     }
 
